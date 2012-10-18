@@ -1,0 +1,271 @@
+<!--Carmen Johnson
+MiU Project 2
+9/6/2012 -->
+
+
+<!DOCTYPE HTML>
+<html lang="en-US">
+	<head>
+		<title>Launch Page</title>
+		<meta charset="UTF-8" />
+		<meta http-equiv="Content-Type" content="text/html" />
+		<meta name="keywords" content="camping list, camping checklist, checklist app" />
+		<meta name="description" content="This app enables you to make sure that you're taking every single item required for emergency evacuations check-list" />
+		<meta name="robots" content="INDEX, FOLLOW" />
+		<meta name="viewport" content="user-scalable=no, width=device-width" />
+		<title>Launch Page</title>
+		
+		<link rel="stylesheet" href="style/jquery.mobile-1.1.1.css" />
+		<link rel="stylesheet" href="style/jqm-datebox-1.1.0.css" />
+		<link rel="stylesheet" href="style/style.css" />
+		<link rel="stylesheet" href="style/main.css" type="text/css">
+	</head>
+	<body>
+		<div data-role="page" id="homePage" data-title="Launch Page" data-theme="b" >
+			<div data-role="header" data-theme="b" data-position="fixed">
+				<img src="images/featured.png" style=" border-radius: 94px 10px 10px 10px;margin: 0.5%;width: 99%;max-height:60px"/>
+				<h1 style="margin:0px;border-radius:10px;font-size:200%;background-color:white;color:#3E6790;height:30px;line-height:30px;margin:-6px .5% .5% .5%;width:99%;">
+					Emergency Evacuation List
+				</h1>
+				<div data-role="controlgroup" data-type="horizontal" class="navbar" style="margin: -2px 0 -1px;">
+					<a href="https://github.com/blackpalmmobileapplications/Carmen_Johnson_MIU2" data-role="button" rel="external">Github</a>
+					<a href="#homePage" data-role="button">Home</a>
+					<a href="../b" rel="external" data-role="button">App B</a>
+				</div>
+			</div>
+			
+		
+			<div data-role="content" class="content">
+				<ul data-theme="c" data-role="listview" data-inset="true" data-corners="true"  data-filter="true" data-filter-placeholder="Search..." id="itemList" ></ul>
+				
+			</div>
+			<div data-role="footer" data-theme="b" data-position="fixed" data-mini="true">
+				<div data-role="controlgroup" class="navbar" data-type="horizontal" >
+					<a href="#addItemPage" data-role="button" onclick="clearAddFields()" data-mini="true" data-inline="true" data-icon="plus" 
+					data-iconpos="top" >Add Item</a>
+					<a href="#" data-role="button" onclick="clearAddFields()" data-mini="true" data-inline="true" data-theme="b" data-icon="check"
+					data-iconpos="top" style="width:66%;" >&copy;Carmen Johnson</a>
+				</div>
+			</div>
+		</div>
+		
+		<div data-role="page" id="addItemPage" data-title="Add Item" data-theme="b">
+			<div data-role="header" data-theme="b" data-position="fixed">
+				<img src="images/featured.png" style=" border-radius: 94px 10px 10px 10px;margin: 0.5%;width: 99%;max-height:60px"/>
+				<h1 style="margin:0px;border-radius:10px;font-size:25px;background-color:white;color:#3E6790;height:30px;line-height:30px;margin:-6px .5% .5% .5%;width:99%;">
+					Emergency Evacuation List
+				</h1>
+				<div data-role="controlgroup" data-type="horizontal" class="navbar" style="margin: -2px 0 -1px;">
+					<a href="https://github.com/blackpalmmobileapplications/Carmen_Johnson_MIU2" data-role="button" rel="external">Github</a>
+					<a href="#homePage" data-role="button">Home</a>
+					<a href="../b" rel="external" data-role="button">App B</a>
+				</div>
+			</div>
+			
+			<div data-role="content" class="content" >
+				<div data-role="collapsible" data-content-theme="c" data-collapsed="false">
+				<h3>Add Item</h3>
+				<p>
+				
+				<form id="addItemForm" action="#addItem" method="post">
+					<div data-role="fieldcontain">
+						<label for="category" class="select">Category<span style="color:red">*</span>:</label>
+						
+						<select name="category" id="category" data-placeholder="true">
+							<option data-placeholder="selectone">Select one..</option>
+							<option value="bedding">Bedding</option>
+							<option value="clothing">Clothing</option>
+							<option value="cooking">Cooking</option>
+							<option value="firstaid">First Aid</option>
+							<option value="shelter">Shelter</option>
+						</select>
+						
+						<label for="itemName">Name<span style="color:red">*</span>:</label>
+						<input type="text" name="itemName" id="itemName" placeholder="egs:Socks, Bandage, etc." />
+						
+						<label for="quantity">Quantity<span style="color:red">*</span>:</label>
+						<input type="range" name="quantity" id="quantity" value="1" min="1" max="50" />
+						<br />
+						
+						<label for="itemDate">Date(yyyy-mm-dd)<span style="color:red">*</span>:</label>
+						<input type="date" data-role="datebox" data-options='{"mode": "calbox"}' name="itemDate" id="itemDate" />
+						
+						<input type="checkbox" name="important" id="important" class="custom" />
+						<label for="important">Important:</label>
+						
+						<label for="comments">Comments<span style="color:red">*</span>:</label>
+						<textarea name="comments" id="comments" placeholder="Type your comments here."></textarea>
+						
+					<!--	<div data-role="controlgroup" data-type="horizontal">
+							<a data-role="button" id="save" onclick="$('#addItemForm').submit()" >Save</a>
+							<a data-role="button" data-rel="back" onclick="clearAddFields()" >Cancel</a>
+						</div>-->
+					</div>
+				</form>
+				</p>
+				</div>
+			</div>
+			<div data-role="footer" data-theme="b" data-position="fixed" data-mini="true">
+				<div data-role="controlgroup" class="navbar" data-type="horizontal" >
+					<a href="#addItemPage" data-role="button" onclick="clearAddFields()" data-mini="true" data-inline="true" data-icon="plus" 
+					data-iconpos="top" >Add Item</a>
+					<a data-rel="back" data-role="button" data-mini="true" data-inline="true" data-icon="back" data-iconpos="top">Back</a>
+					<a data-role="button" id="save" onclick="$('#addItemForm').submit()" data-icon="star" data-iconpos="top" >Save</a>
+				</div>
+			</div>
+		</div>
+		
+		<div data-role="page" id="viewItemPage" data-title="View Item" data-theme="b">
+		
+			<div data-role="header" data-theme="b" data-position="fixed">
+				<img src="images/featured.png" style=" border-radius: 94px 10px 10px 10px;margin: 0.5%;width: 99%;max-height:60px"/>
+				<h1 style="margin:0px;border-radius:10px;font-size:25px;background-color:white;color:#3E6790;height:30px;line-height:30px;margin:-6px .5% .5% .5%;width:99%;">
+					Emergency Evacuation List
+				</h1>
+				<div data-role="controlgroup" data-type="horizontal" class="navbar" style="margin: -2px 0 -1px;">
+					<a href="https://github.com/blackpalmmobileapplications/Carmen_Johnson_MIU2" data-role="button" rel="external">Github</a>
+					<a href="#homePage" data-role="button">Home</a>
+					<a href="../b" rel="external" data-role="button">App B</a>
+				</div>
+			</div>
+		
+			
+			
+			<div data-role="content" class="content">
+			
+				<div id="itemView" data-role="collapsible" data-collapsed="false" data-content-theme="c">
+					<h4>View Item</h4>
+					<p>
+					<img />
+					<ul data-role="listview" data-inset="true">
+						<li name="category">
+							<label>Category:</label>
+							<span></span>
+						</li>
+						<li name="name">
+							<label>Name:</label>
+							<span></span>
+						</li>
+						<li name="quantity">
+							<label>Quantity:</label>
+							<span></span>
+						</li>
+						<li name="date">
+							<label>Date:</label>
+							<span></span>
+						</li>
+						<li name="comments">
+							<label>Comments:</label>
+							<span></span>
+						</li>
+						<li name="important">
+							Important
+						</li>
+					</ul>
+					</p>
+				</div>
+			</div>
+			<div data-role="footer" data-theme="b" data-position="fixed" data-mini="true">
+				<div data-role="controlgroup" class="navbar" data-type="horizontal" >
+					<a href="#addItemPage" data-role="button" onclick="clearAddFields()" data-mini="true" data-inline="true" data-icon="plus" 
+					data-iconpos="top" >Add Item</a>
+					<a data-rel="back" data-role="button" data-mini="true" data-inline="true" data-icon="back" data-iconpos="top">Back</a>
+					<a data-role="button" data-mini="true" data-inline="true" data-icon="gear" data-iconpos="top" id="editItemButton" href="#editItemPage" >Edit</a>
+				</div>
+			</div>
+		</div>
+		
+		
+		<!--***********************-->
+	
+
+		<div data-role="page" id="editItemPage" data-title="Edit Item" data-theme="b">
+		
+			<div data-role="header" data-theme="b" data-position="fixed">
+				<img src="images/featured.png" style=" border-radius: 94px 10px 10px 10px;margin: 0.5%;width: 99%;max-height:60px"/>
+				<h1 style="margin:0px;border-radius:10px;font-size:25px;background-color:white;color:#3E6790;height:30px;line-height:30px;margin:-6px .5% .5% .5%;width:99%;">
+					Emergency Evacuation List
+				</h1>
+				<div data-role="controlgroup" data-type="horizontal" class="navbar" style="margin: -2px 0 -1px;">
+					<a href="https://github.com/blackpalmmobileapplications/Carmen_Johnson_MIU2" data-role="button" rel="external">Github</a>
+					<a href="#homePage" data-role="button">Home</a>
+					<a href="../b" rel="external" data-role="button">App B</a>
+				</div>
+			</div>
+
+			
+			<div data-role="content" class="content">	
+			
+			<div id="itemView" data-role="collapsible" data-collapsed="false" data-content-theme="c">
+				<h4>Edit Item</h4>
+				<p>
+			
+				<form id="editItemForm" action="#editItem" method="post">
+					<div data-role="fieldcontain">
+					
+						<input type="hidden" name="itemId" />
+						<label for="category" class="select">Category<span style="color:red">*</span>:</label>
+						<select name="category" id="category" >
+							<option value="bedding">Bedding</option>
+							<option value="clothing">Clothing</option>
+							<option value="cooking">Cooking</option>
+							<option value="firstaid">First Aid</option>
+							<option value="shelter">Shelter</option>
+						</select>
+					
+						<label for="itemName">Name<span style="color:red">*</span>:</label>
+						<input type="text" name="itemName" id="itemName" placeholder="egs:Socks, Bandage, etc." />
+						
+						<label for="quantity">Quantity<span style="color:red">*</span>:</label>
+						<input type="range" name="quantity" id="quantity" value="1" min="1" max="50" />
+						<br />
+						
+						<label for="itemDate">Date (yyyy-mm-dd)<span style="color:red">*</span>:</label>
+						<input type="date" name="itemDate" id="itemDate" data-role="datebox" data-options='{"mode": "calbox"}' />
+						
+						<input type="checkbox" name="important" id="important" class="custom" />
+						<label for="important">Important:</label>
+						
+						<label for="comments">Comments<span style="color:red">*</span>:</label>
+						<textarea name="comments" id="comments" placeholder="Type your comments here."></textarea>
+					</div>
+				</form>
+				</p>
+			</div>
+				
+			</div>
+			<div data-role="footer" data-theme="b" data-position="fixed" data-mini="true">
+				<div data-role="controlgroup" class="navbar" data-type="horizontal" >
+					<a href="#addItemPage" data-role="button" onclick="clearAddFields()" data-mini="true" data-inline="true" data-icon="plus" 
+					data-iconpos="top" >Add Item</a>
+					<a data-rel="back" data-role="button" data-mini="true" data-inline="true" data-icon="back" data-iconpos="top">Back</a>
+					<a data-role="button" data-mini="true" data-inline="true" data-icon="star" data-iconpos="top" id="update" onclick="$('#editItemForm').submit()" >Update </a>
+				</div>
+			</div>
+		</div>
+		<style type="text/css">
+			.ui-btn-up-b {
+			background-image: -webkit-gradient(linear, left top, left bottom, from( #5f9cc5 /*{b-bup-background-start}*/), to( #AAAAAA /*{b-bup-background-end}*/)); /* Saf4+, Chrome */
+			background-image: -webkit-linear-gradient( #5f9cc5 /*{b-bup-background-start}*/, #AAAAAA /*{b-bup-background-end}*/); /* Chrome 10+, Saf5.1+ */
+			background-image:    -moz-linear-gradient( #5f9cc5 /*{b-bup-background-start}*/, #AAAAAA /*{b-bup-background-end}*/); /* FF3.6 */
+			background-image:     -ms-linear-gradient( #5f9cc5 /*{b-bup-background-start}*/, #AAAAAA /*{b-bup-background-end}*/); /* IE10 */
+			background-image:      -o-linear-gradient( #5f9cc5 /*{b-bup-background-start}*/, #AAAAAA /*{b-bup-background-end}*/); /* Opera 11.10+ */
+			background-image:         linear-gradient( #5f9cc5 /*{b-bup-background-start}*/, #AAAAAA /*{b-bup-background-end}*/);
+		}
+		.ui-btn-hover-b {
+			border: 1px solid 		#00415e /*{b-bhover-border}*/;
+			background: 			#4b88b6 /*{b-bhover-background-color}*/;
+			font-weight: bold;
+			color: 					#fff /*{b-bhover-color}*/;
+			text-shadow: 0 /*{b-bhover-shadow-x}*/ 1px /*{b-bhover-shadow-y}*/ 1px /*{b-bhover-shadow-radius}*/ #194b7e /*{b-bhover-shadow-color}*/;
+			background-image: -webkit-gradient(linear, left top, left bottom, from( #AAAAAA /*{b-bhover-background-start}*/), to( #5f9cc5 /*{b-bhover-background-end}*/)); /* Saf4+, Chrome */
+			background-image: -webkit-linear-gradient( #AAAAAA /*{b-bhover-background-start}*/, #5f9cc5 /*{b-bhover-background-end}*/); /* Chrome 10+, Saf5.1+ */
+			background-image:    -moz-linear-gradient( #AAAAAA /*{b-bhover-background-start}*/, #5f9cc5 /*{b-bhover-background-end}*/); /* FF3.6 */
+			background-image:     -ms-linear-gradient( #AAAAAA /*{b-bhover-background-start}*/, #5f9cc5 /*{b-bhover-background-end}*/); /* IE10 */
+			background-image:      -o-linear-gradient( #AAAAAA /*{b-bhover-background-start}*/, #5f9cc5 /*{b-bhover-background-end}*/); /* Opera 11.10+ */
+			background-image:         linear-gradient( #AAAAAA /*{b-bhover-background-start}*/, #5f9cc5 /*{b-bhover-background-end}*/);
+}
+		</style>
+	</body>
+	<script src="vendor/couchapp/loader.js"></script>
+</html>

@@ -1,0 +1,32 @@
+.navbar a { width: 33%; }
+.navbar .ui-controlgroup { margin: 0; }
+.navbar .ui-controlgroup-last { margin-right: -1%; }
+.content { text-align: center; }
+.content > img { max-width: 320px; width: 100%; }
+.content > .ui-bar { text-align: center; }
+#searchContainer > div:first-child { width: 75%; }
+#searchContainer > div:last-child { width: 25%; }
+#addItemPage form { text-align: left; }
+#addItemPage form .ui-controlgroup { margin: 0; }
+#addItemPage form .ui-controlgroup-controls { width: 100%; }
+#addItemPage form .ui-controlgroup-last { margin-right: -1%; }
+#addItemPage form .ui-controlgroup-horizontal a { width: 49%; }
+#addItemPage #comments { margin-bottom: 12px; }
+#itemView { /*text-align: left;*/text-align:center; }
+#itemView > img { display: block; margin: 0 auto; margin-bottom: 12px; }
+#itemView ul { list-style: none; margin: 0; /*margin-left: 12px; */}
+#itemView .ui-disabled { opacity: 1; }
+
+
+#editItemPage form { text-align: left; }
+#editItemPage form .ui-controlgroup { margin: 0; }
+#editItemPage form .ui-controlgroup-controls { width: 100%; }
+#editItemPage form .ui-controlgroup-last { margin-right: -1%; }
+#editItemPage form .ui-controlgroup-horizontal a { width: 49%; }
+#editItemPage #comments { margin-bottom: 12px; }
+
+label.error { 
+	color: red; 
+	vertical-align: top; 
+	font-weight:bold
+}
